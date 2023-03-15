@@ -1,0 +1,48 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($colour-grey-light-1, 0.8),
+      rgba($colour-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg); /* ... goes back one folder */
+  background-size: cover;
+  background-position: top;
+  /* clips background. makes background shape */
+  clip-path: polygon(
+    0 0,
+    100% 0%,
+    100% 80vh,
+    0 100%
+  ); 
+  /*makes clip path work in all browsers */
+  -webkit-clip-path: polygon(
+    0 0,
+    100% 0%,
+    100% 80vh,
+    0 100%
+  ); 
+  
+  position: relative;
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 6rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(
+      -50%,
+      -50%
+    ); /*positioning in relation to the div itself. makes it exactly in the middle of the div*/
+    text-align: center;
+  }
+}
