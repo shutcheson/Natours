@@ -1,19 +1,24 @@
 .btn {
+  &, //this applies all the below to the btn 
   &:link,
   &:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 1.5rem 4rem;
+    padding: 1.2rem 4rem;
     display: inline-block;
     border-radius: 10rem;
     transition: all 0.2s;
     position: relative;
     font-size: $default-font-size;
+
+    //Change for the <button> element
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba3($colour-black, 0.5);
+    box-shadow: 0 1rem 1rem rgba($colour-black, 0.2);
 
     &::after {
       transform: scaleX(1.4) scaleY(1.6);
@@ -21,7 +26,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba($colour-black, 0.2);
   }
@@ -60,30 +67,39 @@
     &::after {
       background-color: $colour-primary;
     }
+
+    &--animated {
+      animation: moveInBottom 0.5s ease-in-out 0.75s;
+      animation-fill-mode: backwards; /* will apply the animations of the 0% keyframes first */
+    }
   }
 
-  .btn-text {
-    &:link,
-    &:visited {
-      font-size: $default-font-size;
-      color: $colour-primary-dark;
-      display: inline-block;
-      text-decoration: none;
-      border-bottom: 1px solid $colour-primary-dark;
-      padding: 3px;
-      transition: all 0.2s;
-    }
+  &--form {
+    margin-top: 2rem;
+  }
+}
 
-    &:hover {
-      background-color: $colour-primary-dark;
-      color: $colour-white;
-      box-shadow: 0 1rem 2rem rgba($colour-black, 0.15);
-      transform: translateY(-2px);
-    }
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $colour-primary-dark;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $colour-primary-dark;
+    padding: 3px;
+    transition: all 0.2s;
+  }
 
-    &:active {
-      box-shadow: 0 1rem 2rem rgba($colour-black, 0.15);
-      transform: translateY(0);
-    }
+  &:hover {
+    background-color: $colour-primary-dark;
+    color: $colour-white;
+    box-shadow: 0 1rem 2rem rgba($colour-black, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 1rem 2rem rgba($colour-black, 0.15);
+    transform: translateY(0);
   }
 }

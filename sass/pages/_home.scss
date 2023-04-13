@@ -27,6 +27,35 @@
 }
 
 .section-stories {
+  position: relative;
   padding: 15rem 0;
-  background-color: $colour-grey-light-1;
+}
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(
+    to right bottom,
+    $colour-primary-light,
+    $colour-primary-dark
+  );
+}
+
+.book {
+  background-image: linear-gradient(
+      105deg,
+      rgba($colour-white, 0.9) 0%,
+      rgba($colour-white, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../img/nat-10.jpg);
+  background-size: cover;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($colour-black, 0.2);
+
+  height: 50rem;
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+  }
 }
