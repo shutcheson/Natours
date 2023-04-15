@@ -91,7 +91,7 @@
     }
   }
 
-  //FUNCTIONALITY
+  //Functionality
   &__checkbox:checked ~ &__background {
     transform: scale(80);
   }
@@ -99,5 +99,61 @@
   &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
+  }
+
+  //Nav XIcon
+  &__icon {
+    position: relative;
+    margin-top: 3.4rem;
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $colour-grey-dark-2;
+      display: inline-block;
+      border-radius: 0.4rem;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.9rem;
+    }
+    &::after {
+      top: 0.9rem;
+    }
+  }
+
+  //nav icon grows slightly on hover
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  //make icon line dissapear
+  // when checkbox is selected, we select its sibling (__button), the select its child (__icon)
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    transform: rotate(135deg);
+    top: 0;
+    transition: all 0.4s;
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    transform: rotate(-135deg);
+    top: 0;
+    transition: all 0.4s;
   }
 }
