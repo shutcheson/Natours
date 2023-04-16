@@ -1,0 +1,57 @@
+.popup {
+  background-color: rgba($colour-black, 0.9);
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+
+  &__content {
+    @include centre-hor-ver;
+    background-color: $colour-white;
+    box-shadow: 0 2rem 4rem rgba($colour-black, 0.2);
+    height: 40rem;
+    width: 75%;
+    border-radius: 3px;
+    display: table; //parent div for left and right divs. needed for display: table-cell; on the child divs
+    overflow: hidden;
+  }
+
+  &__left {
+    width: 33.333%;
+    display: table-cell; //makes the left  and right divs the same height
+    vertical-align: middle;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 50%;
+  }
+
+  &__right {
+    width: 66.666%;
+    display: table-cell; //makes the left  and right divs the same height
+    vertical-align: middle;
+    padding: 3rem 5rem;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+    column-count: 2; //creates columns
+    column-gap: 4rem; //1em = 14px. 1em is always the font size of the current element
+    column-rule: 1px solid $colour-grey-light-3;
+
+    -moz-column-count: 2;
+    -moz-column-gap: 4rem;
+    -moz-column-rule: 1px solid $colour-grey-light-3;
+
+    hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+}
