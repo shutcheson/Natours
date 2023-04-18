@@ -8,22 +8,20 @@
     url(../img/hero.jpg); /* ... goes back one folder */
   background-size: cover;
   background-position: top;
-  /* clips background. makes background shape */
-  clip-path: polygon(
-    0 0,
-    100% 0%,
-    100% 80vh,
-    0 100%
-  ); 
-  /*makes clip path work in all browsers */
-  -webkit-clip-path: polygon(
-    0 0,
-    100% 0%,
-    100% 80vh,
-    0 100%
-  ); 
-  
   position: relative;
+  /* clips background. makes background shape */
+  clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
+  /*makes clip path work in all browsers */
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 80vh, 0 100%);
+
+  @include respond(tab-port) {
+    clip-path: polygon(0 0, 100% 0%, 100% 84vh, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 84vh, 0 100%);
+  }
+  @include respond(phone) {
+    clip-path: polygon(0 0, 100% 0%, 100% 90vh, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90vh, 0 100%);
+  }
 
   &__logo-box {
     position: absolute;
